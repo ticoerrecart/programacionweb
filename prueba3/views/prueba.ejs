@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    </head>
+    <body>
+        <%- include('menu') -%>
+
+        <H1> <%= titulo %> </H1>
+        <p>
+            <%= parrafo %>
+        </p>
+
+        <ul>
+            <% equipos.forEach(equipo => { %>
+                <li><%= equipo %></li>
+            <% }); %>
+        </ul>
+
+        
+    </body>
+</html>
