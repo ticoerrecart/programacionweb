@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    </head>
+    <body>
+        <%- include('menu') -%> 
+
+
+        <div class="container">
+            <h1>Personas</h1>
+                <div class="row">
+                    <div class="col-3 fw-bold">Nombre</div>
+                    <div class="col-3 fw-bold">Apellido</div>
+                    <div class="col-3 fw-bold">Dni</div>
+                </div>
+                
+                <%personas.forEach(function(persona){ %>
+                    <div class="row">
+                        <div class="col-3"><%= persona.nombre  %></div>
+                        <div class="col-3"><%= persona.apellido  %> </div>
+                        <div class="col-3"><%= persona.dni  %></div>
+                        <div class="col-3">
+                            
+                            <a href="/borrarPersona/<%= persona.dni  %>">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash-fill" viewBox="0 0 16 16">
+                                    <path d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0z"/>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                <% }); %> 
+            
+            <br>
+            <h4>Buscar Persona</h4>
+            <form action="/buscarPersona" method="post">
+                <div class="row">
+                    <div class="col-3 ">
+                        <input type="text" class="form-control" placeholder="Ingrese el nombre" name="nombre"/>
+                    </div>
+                    <div class="col-3 ">
+                        <input type="text" class="form-control" placeholder="Ingrese el apellido" name="apellido"/>
+                    </div>
+                    <div class="col-3 ">
+                        <input type="text" class="form-control" placeholder="Ingrese el dni" name="dni" />
+                    </div>
+                    <div class="col-3 ">
+                        <input type="submit" class="btn btn-secondary" value="Buscar"/>
+                    </div>
+                </div>
+            </form>
+            <br>
+
+
+
+            <h2>Alta de Personas</h2>
+            <form action="/altaPersona" method="post">
+                <label for="nombre">Nombre:</label>
+                <input type="text" class="form-control" placeholder="Ingrese el nombre" name="nombre" required/>
+                <br>
+                <label for="apellido">Apellido:</label>
+                <input type="text" class="form-control" placeholder="Ingrese el apellido" name="apellido" required/>
+                <br>
+                <label for="nombre">Dni:</label>
+                <input type="text" class="form-control" placeholder="Ingrese el dni" name="dni" required/>
+                <br>
+
+                <input type="submit" value="Agregar Persona" class="btn btn-primary"/>
+            </form>
+            <br>
+        </div>
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
+
+    </body>
+</html>

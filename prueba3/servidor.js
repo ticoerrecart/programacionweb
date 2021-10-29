@@ -34,3 +34,16 @@ miApp.get("/pruebaDinamica2", function (pedido,respuesta){
 
     respuesta.render("prueba2", datos);
 });
+
+miApp.get("/datosPersona", function (pedido,respuesta){
+    let datos = { id: 3499, edad: 40, nombre: 'Peter' };
+    
+    respuesta.render("datosPersona", datos);
+});
+
+miApp.get("/prueba3", function (pedido,respuesta){
+    let datos = { };
+    datos.parrafo="Este parrafo es dinamico";
+    
+    respuesta.render("prueba3", datos);
+});

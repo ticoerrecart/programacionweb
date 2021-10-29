@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    </head>
+    <body>
+        <%- include('menu') -%> 
+        <div class="container">
+                <h4>Ingresar</h4>
+                <form action="/ingresar" method="post">
+                    <div class="row">
+                        <div class="col-3 ">
+                            <input type="text" class="form-control" placeholder="Ingrese el nombre" name="nombre"/>
+                        </div>
+                        <div class="col-3 ">
+                            <input type="password" class="form-control" placeholder="Ingrese la password" name="password"/>
+                        </div>
+                        <div class="col-3 ">
+                            <input type="submit" class="btn btn-secondary" value="Ingresar"/>
+                        </div>
+                    </div>
+                </form>
+
+                <% if(locals.error){%>
+                  <div class="row">
+                    <div class="col-3 ">
+                        <%=error%>
+                    </div>
+                  </div>
+                <%}%>
+
+     
+        </div>
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
+
+    </body>
+</html>
